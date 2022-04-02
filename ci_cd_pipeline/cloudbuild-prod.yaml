@@ -1,0 +1,18 @@
+steps:
+
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args: 
+     - gcloud
+     - functions
+     - deploy
+     - ingester-transactions
+     - --entry-point=ingest_transaction
+     - --region=us-central1
+     - --runtime=python38
+     - --trigger-resource=asr-cloud-201701454
+     - --trigger-event=google.storage.object.finalize
+     - --memory=512MB
+     - --timeout=60s
+
+      
+
